@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mariadb-service:
+        image: mariadb:10.5
+        container_name: sekai-upgrade-mariadb-10.5
+        ports:
+            - "4306:3306"
+        volumes:
+            - ./mariadb:/var/lib/mysql
+        restart: always # always restart unless stopped manually
+        environment:
+            MYSQL_USER: root
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_PASSWORD: secret
